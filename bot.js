@@ -73,5 +73,5 @@ client.on('message', message => {
 });
 
 //insert your token here
-client.login('NDA4NjQwMjMyMDcwNTc4MTg4.DVS_sw.v0EdzubhVmqh5Qg3MX9ht0jyEPk');
+client.login(config.configuration[0].token);
 
