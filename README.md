@@ -13,6 +13,8 @@ info: 		provides information about a specific command
 
 8ball: 		answers a yes or no question
 
+rate: 		rates something out of 100
+
 counter++: 	increments the specified counter
 
 counter--: 	decrements the specified counter
