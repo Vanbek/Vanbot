@@ -1,0 +1,18 @@
+{ "commands" : [
+    { "name": "hello", "privileged" : 0, "info": "returns a friendly greeting"},
+    { "name": "help", "privileged" : 0, "info": "provides a list of commands"},
+    { "name": "8ball", "privileged" : 0, "info": "answers a yes or no question"},
+    { "name": "info", "privileged" : 0, "info": "provides information about a specific command"},
+    { "name": "cry", "privileged" : 0, "info": "links a random GIF of a crying anime person"},
+    { "name": "smug", "privileged" : 0, "info": "creates a 'smug aura' meme using your profile picture"},
+    { "name": "wolverine", "privileged" : 0, "info": " creates a Wolverine meme using your profile picture"},
+    { "name": "custom", "privileged" : 0, "info": "executes custom commands using the format: !custom [commandName]"},
+    { "name": "checkcounter", "privileged" : 0, "info": "returns the specified counters current value using the format: !checkcounter[counterName]"},
+    { "name": "rate", "privileged" : 0, "info": "rates something out of 100"},
+    { "name": "counter++", "privileged" : 1, "info": "increments the specified counter using the format !counter++ [counterName]"},
+    { "name": "counter--", "privileged" : 1, "info": "decrements the specified counter using the format !counter++ [counterName]"},
+    { "name": "createcounter", "privileged" : 1, "info": "creates a new counter using the format: !createcounter [counterName] [startingValue]"},
+    { "name": "deletecounter", "privileged" : 1, "info": "deletes counter using the format: !deletecounter [counterName]"},
+    { "name": "createcustom", "privileged" : 1, "info": "creates a custom command using the format: !createcustom [commandName] [URL]"},
+    { "name": "deletecustom", "privileged" : 1, "info": "deletes custom command using the format: !deletecustom [commandName]"}
+  ]}

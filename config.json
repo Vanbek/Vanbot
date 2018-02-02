@@ -1,0 +1,3 @@
+{ "configuration" : [
+    { "trigger": "v!", "privileged_role" : "Bot Permissions", "token": ""}
+  ]}
