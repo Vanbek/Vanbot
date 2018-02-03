@@ -34,9 +34,9 @@ client.on('ready', () => {//on startup
 client.on('message', message => {
 	var args = message.content.split(/[ ]+/);
 
-	if (args[0].startsWith(config.configuration[0].trigger)) {
+	if (args[0].toLowerCase().startsWith(config.configuration[0].trigger)) {
 		let temp = args[0].substring(config.configuration[0].trigger.length, args[0].length);
-		args[0] = temp;
+		args[0] = temp.toLocaleLowerCase();
 
 		var found = 0;
 		var privReq = 1;
@@ -72,6 +72,5 @@ client.on('message', message => {
 	}//cyber alert
 });
 
-//insert your token here
 client.login(config.configuration[0].token);
 
