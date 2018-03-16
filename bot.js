@@ -1,9 +1,12 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+var Twitter = require('twitter');
+
 
 var fs = require('fs');
 var command_list = JSON.parse(fs.readFileSync('commands.json', 'utf8'));
 var config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
+var twitter_config = JSON.parse(fs.readFileSync('twitter_config.json', 'utf8'));
 
 function pluck(array) {
 	return array.map(function (item) { return item["name"]; });
@@ -28,7 +31,7 @@ module.exports = {//message functions that can be called from other files
 
 client.on('ready', () => {//on startup
 	console.log('Goliath Online');
-	client.user.setGame("try " + config.configuration[0].trigger + "help");
+	client.user.setActivity("try " + config.configuration[0].trigger + "help");
 });
 
 client.on('message', message => {
@@ -70,6 +73,29 @@ client.on('message', message => {
 	if (message.content.toLocaleLowerCase().includes("cyber")) {//cyber alert
 		message.channel.send(':rotating_light: C Y B E R :rotating_light:');
 	}//cyber alert
+	if (message.content.toLocaleLowerCase().includes("vanbot no")) {//vanbot yes
+		message.channel.send('Vanbot yes');
+	}//vanbot yes
+});
+
+var twitter_client = new Twitter({
+	consumer_key: twitter_config.credentials[0].consumer_key,
+	consumer_secret: twitter_config.credentials[0].consumer_secret,
+	access_token_key: twitter_config.credentials[0].access_token_key,
+	access_token_secret: twitter_config.credentials[0].access_token_secret
+});
+
+twitter_client.stream('statuses/filter', { follow: twitter_config.targets[0].twitter_ids }, function (stream) {
+	stream.on('data', function (tweet) {
+		if (!tweet.retweeted_status && !tweet.InReplyToStatusId && twitter_config.targets[0].twitter_ids.includes(tweet.user.id_str)) {
+			var channel = client.channels.get(twitter_config.targets[0].broadcast_channel);
+			channel.send("https://twitter.com/" + tweet.user.screen_name + "/status/" + tweet.id_str);
+		}
+	});
+
+	stream.on('error', function (error) {
+		console.log(error);
+	});
 });
 
 client.login(config.configuration[0].token);

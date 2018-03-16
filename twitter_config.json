@@ -1,0 +1,12 @@
+{
+    "credentials": [{
+            "consumer_key": "",
+            "consumer_secret": "",
+            "access_token_key": "",
+            "access_token_secret": ""
+        }],
+    "targets": [{
+            "broadcast_channel": "",
+            "twitter_ids": ""
+        }]
+}
