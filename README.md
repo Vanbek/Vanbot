@@ -40,6 +40,7 @@ checkcounter: 	returns the specified counters current value
 
 How to get it working: 
 
-1. Run create_db.js to create the database (node creat_db.js)
-2. Insert the token of the Discord bot account you want running the app in config.js under token. (You can make changes to other settings here as well)
-3. Run or daemonize bot.js (node bot.js) or (pm2 start bot.js) to get started (control+c or pm2 stop bot.js to turn it off)
+1. Run npm install. Ignore warnings.
+2. Run create_db.js to create the database (node creat_db.js)
+3. Insert the token of the Discord bot account you want running the app in config.js under token. (You can make changes to other settings here as well)
+4. Run or daemonize bot.js (node bot.js) or (pm2 start bot.js) to get started (control+c or pm2 stop bot.js to turn it off)
